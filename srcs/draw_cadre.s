@@ -14,9 +14,9 @@ draw_cadre:
 
 	;init
 	mov		rax, 0	;rax -> i = 0
-	jmp		loop
+	jmp		loop_draw_cadre
 
-loop:
+loop_draw_cadre:
 	cmp		rax, 7
 	je		end
 	inc		rax
@@ -27,7 +27,7 @@ loop:
 	mov		rdx, len_cadre
 	syscall
 	pop		rax				;reprend rax
-	jmp		loop
+	jmp		loop_draw_cadre
 
 end:
 	;epilogue

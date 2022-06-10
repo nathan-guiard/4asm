@@ -17,12 +17,16 @@ check_before_loop:
 	je		change_rbx_1
 	jmp		change_rbx_2
 
-loop:
-	;fonction qui check l'imput et qui renvoie la colone
+loop_game_loop:
+	;fonction qui check l'input et qui renvoie la colone
 	mov		rdi, rbx
 	push	rbx
 	call	read_loop
 	pop		rbx
+
+	mov		rdi, rax
+	mov		rax, 60
+	syscall
 	;fonction qui ecrit le jeton dans l'array et sur l'ecran
 
 	;fonction qui check si un joueur a gagne (exit 0 dedans?)
@@ -33,8 +37,8 @@ loop:
 
 change_rbx_1:
 	mov		rbx, 1
-	jmp		loop
+	jmp		loop_game_loop
 
 change_rbx_2:
 	mov		rbx, 2
-	jmp		loop
+	jmp		loop_game_loop

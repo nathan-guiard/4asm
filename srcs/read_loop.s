@@ -7,9 +7,9 @@ section .data
 	msg1_len equ $ - player_1
 	player_2 db "Joueur 2:", 0xa
 	msg2_len equ $ - player_2
-	imput_error db "Erreur d'imput"
-	error_len equ $ - imput_error
-	imput db 2
+	input_error db "Erreur d'input", 0xa
+	error_len equ $ - input_error
+	input db 2
 
 section .text
 	global	read_loop
@@ -20,7 +20,7 @@ read_loop:
 	mov		rbp, rsp
 
 	mov		rbx, rdi	;rbx = player_nb
-	push	rbx
+	;push	rbx
 
 	;write (1, colone, colone_len)
 	mov		rax, 1
@@ -30,21 +30,34 @@ read_loop:
 	syscall
 
 read:
-	;read (0, imput, 1)
+	;read (0, input, 1)
 	mov		rax, 0
 	mov		rdi, 0
-	mov		rsi, imput
+	mov		rsi, input
 	mov		rdx, 2
 	syscall
 
-	cmp		byte [imput], 49
-	
+	; if (input[0] > '7' || input[0] < '1') -> error
+	cmp		byte [input], 49
+	jl		error
+	cmp		byte [input], 56
+	jg		error
 
-	mov		rax, 60
-	mov		rdi, 0
-	syscall
+	jmp		end_read_loop
 
-test:
-	mov		rax, 60
-	mov		rdi, 10
+error:
+	mov		rax, 1
+	mov		rdi, 1
+	mov		rsi, input_error
+	mov		rdx, error_len
 	syscall
+	jmp		read
+
+end_read_loop:
+	;epilogue
+	sub		byte [input], 48
+	mov		al, byte [input]
+	and		rax, 0x000000ff
+	mov		rsp, rbp
+	pop		rbp
+	ret
