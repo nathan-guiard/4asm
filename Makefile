@@ -6,7 +6,7 @@
 #    By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 19:00:15 by nguiard           #+#    #+#              #
-#    Updated: 2022/06/10 12:32:55 by nguiard          ###   ########.fr        #
+#    Updated: 2022/06/10 15:21:46 by nguiard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC =	$(addsuffix .s,		\
 		draw_cadre			\
 		game_loop			\
 		read_loop			\
+		colone_len			\
 		))
 
 OBJ =	${SRC:srcs/%.s=obj/%.o}

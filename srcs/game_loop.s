@@ -24,11 +24,16 @@ loop_game_loop:
 	call	read_loop
 	pop		rbx
 
+	;fonction qui ecrit le jeton dans l'array et sur l'ecran
+	mov		rdi, rbx
+	push	rbx
+	call	put_token
+	pop		rbx
+
+
 	mov		rdi, rax
 	mov		rax, 60
 	syscall
-	;fonction qui ecrit le jeton dans l'array et sur l'ecran
-
 	;fonction qui check si un joueur a gagne (exit 0 dedans?)
 	
 	;retourne au debut de la loop

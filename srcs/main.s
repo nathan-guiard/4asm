@@ -1,10 +1,11 @@
 bits 64
 
 section .data
-	array dd 49
+	array TIMES 49 db 0
 
 section .text
 	global	_start
+	global	array
 	extern	draw_cadre
 	extern	game_loop
 
