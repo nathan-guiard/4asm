@@ -5,7 +5,8 @@ section .data
 	len_cadre equ $ - cadre
 
 section .text
-	global draw_cadre
+	global	draw_cadre
+	extern	clear
 
 draw_cadre:
 	;prologue
@@ -14,6 +15,7 @@ draw_cadre:
 
 	;init
 	mov		rax, 0	;rax -> i = 0
+	call	clear
 	jmp		loop_draw_cadre
 
 loop_draw_cadre:

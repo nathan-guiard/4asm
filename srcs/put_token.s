@@ -5,7 +5,8 @@ section .text
 	extern	colone_len
 	global	put_token
 	extern	put_in_array
-
+	extern	draw_cadre
+	extern	draw_coins
 
 	;rdi:	player_nb
 	;rsi:	colone
@@ -25,6 +26,8 @@ put_token:
 	push	rsi
 	mov		rdx, rax
 	call	put_in_array
+	call	draw_cadre
+	call	draw_coins
 
 
 end_put_token:
