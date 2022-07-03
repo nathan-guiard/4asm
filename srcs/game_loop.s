@@ -4,6 +4,7 @@ section .text
 	global	game_loop
 	extern	array
 	extern	read_loop
+	extern	put_token
 
 game_loop:
 	;prologue
@@ -26,6 +27,7 @@ loop_game_loop:
 
 	;fonction qui ecrit le jeton dans l'array et sur l'ecran
 	mov		rdi, rbx
+	mov		rsi, rax
 	push	rbx
 	call	put_token
 	pop		rbx

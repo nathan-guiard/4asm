@@ -6,7 +6,7 @@
 #    By: nguiard <nguiard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/09 19:00:15 by nguiard           #+#    #+#              #
-#    Updated: 2022/06/10 15:21:46 by nguiard          ###   ########.fr        #
+#    Updated: 2022/07/03 21:48:24 by nguiard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SRC =	$(addsuffix .s,		\
 		game_loop			\
 		read_loop			\
 		colone_len			\
+		put_token			\
+		put_in_array		\
 		))
 
 OBJ =	${SRC:srcs/%.s=obj/%.o}

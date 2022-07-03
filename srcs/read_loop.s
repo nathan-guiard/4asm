@@ -21,10 +21,7 @@ read_loop:
 	;prologue
 	push	rbp
 	mov		rbp, rsp
-	
-	push	rdi
 
-	pop		rbx
 	cmp		rbx, 1
 	je		write_p1
 	jmp		write_p2
